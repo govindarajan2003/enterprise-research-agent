@@ -1,0 +1,140 @@
+# ============================================================
+# Enterprise Research Agent - .gitignore
+# ============================================================
+
+# ---------------- Secrets / environment ----------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+secrets/
+.secrets/
+credentials.json
+service-account*.json
+
+# ---------------- Python ----------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.python-version
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.pyre/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+pytest.xml
+
+# Packaging / build outputs
+*.egg-info/
+.eggs/
+dist/
+build/
+site/
+wheels/
+pip-wheel-metadata/
+
+# ---------------- Local database / persistent runtime data ----------------
+*.db
+*.sqlite
+*.sqlite3
+.pgdata/
+data/postgres/
+data/uploads/
+data/generated/
+storage/local/
+
+# ---------------- Logs / temporary files ----------------
+*.log
+logs/
+tmp/
+temp/
+.cache/
+*.tmp
+*.bak
+*.orig
+
+# Generated security / analysis reports
+reports/generated/
+reports/security/*.json
+reports/security/*.xml
+reports/security/*.sarif
+
+# ---------------- IDE / editor ----------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# ---------------- OS files ----------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------------- Docker / local runtime overrides ----------------
+docker-compose.override.yml
+.compose/
+.localstack/
+
+# ---------------- Node / frontend (future-safe) ----------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+dist-client/
+coverage/
+
+# ---------------- Antigravity local/runtime state ----------------
+# IMPORTANT:
+# Commit these:
+#   .agents/rules/
+#   .agents/skills/
+#   .agents/agents/
+#   .agents/hooks.json
+#
+# Ignore only machine-specific/runtime agent state.
+
+.agents/local/
+.agents/cache/
+.agents/tmp/
+.agents/logs/
+.agents/state/
+.agents/generated/
+
+# Personal/local instruction overrides
+AGENTS.local.md
+*.local.agent.md
+
+# ---------------- Test / local artifacts ----------------
+test-results/
+playwright-report/
+screenshots/
+artifacts/
+
+# ---------------- Misc ----------------
+*.pid
+*.seed
+*.pid.lock

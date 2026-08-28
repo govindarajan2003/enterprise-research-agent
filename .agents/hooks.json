@@ -1,0 +1,53 @@
+{
+  "dangerous-command-gate": {
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python ../scripts/agent/safety_gate.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "protected-governance-file-gate": {
+    "PreToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python ../scripts/agent/protected_file_gate.py",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "python-post-edit-check": {
+    "PostToolUse": [
+      {
+        "matcher": "write_to_file|replace_file_content|multi_replace_file_content",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python ../scripts/agent/post_edit_check.py",
+            "timeout": 20
+          }
+        ]
+      }
+    ]
+  },
+  "completion-quality-gate": {
+    "Stop": [
+      {
+        "type": "command",
+        "command": "python ../scripts/agent/stop_gate.py",
+        "timeout": 60
+      }
+    ]
+  }
+}
